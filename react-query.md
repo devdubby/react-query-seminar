@@ -203,15 +203,8 @@ queryClient.invalidateQueries('todos')
 이외에도 Infinite scroll 구현시 활용할 수 있는 `useInfinityQuery` 도 있고 굉장히 여러가지 용도로 사용할 수 있는 함수들이 많이 있는 것 같습니다.  
 
 
-
-
-Initial Data Function
-이 함수는 쿼리가 초기화될 때 한 번만 실행되어 소중한 메모리 및/또는 CPU를 절약합니다.
-
-function Todos() {
-   const result = useQuery('todos', () => fetch('/todos'), {
-     initialData: () => {
-       return getExpensiveTodos()
-     },
-   })
- }
+## 결론
+이처럼 React Query 를 잘 사용하여 Server State 관리 로직을 store에 분리시킬 수 있다면 비대해진 store를 조금 더 가볍게 만들 수 있고, API 콜 로직도 간단히 작성할 수 있을 것 같습니다.  
+그렇게 되면 추후에 레거시가 될 때에도 유지보수 하기에도 용이해질 것 같습니다.  
+그러나 React Query가 좋다고 무조건 써야하나? 요즘 개발 트렌드이니 따라가야 하나? 하는가에 대한 질문에는 팀 내 동료들끼리 충분히 고민해보고 React Query를 도입했을때 장점들을 잘 활용할 수 있나, 우리 서비스에 작 접목시킬 수 있나가 중요한 것 같습니다.  
+실시간으로 변하는 코인 시세를 보여줄 필요가 없는 페이지나, 신규 프로젝트에서는 한번 상황에 맞게 적절히 기술을 도입하면 좋을 것 같습니다.
